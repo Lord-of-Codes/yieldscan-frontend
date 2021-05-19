@@ -165,7 +165,7 @@ const RewardCalculatorPage = () => {
 				})
 				.catch((error) => {
 					// TODO: handle error gracefully with UI toast
-					console.error("Something went wrong", error);
+					alert(error);
 				});
 		}
 	}, [

@@ -90,7 +90,7 @@ const WalletConnectPopover = ({ styles, networkInfo, cookies }) => {
 			})
 			.catch((error) => {
 				// TODO: handle error properly using UI toast
-				console.error("Something went wrong", error);
+				alert(error);
 			});
 	}, [networkInfo]);
 

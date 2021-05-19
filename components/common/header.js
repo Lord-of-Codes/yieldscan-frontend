@@ -54,8 +54,11 @@ import ProgressiveImage from "react-progressive-image";
 const Header = ({ isBase }) => {
 	const cookies = parseCookies();
 	const { selectedNetwork, setSelectedNetwork } = useSelectedNetwork();
-	const { setValidators, setValidatorMap, setValidatorRiskSets } =
-		useValidatorData();
+	const {
+		setValidators,
+		setValidatorMap,
+		setValidatorRiskSets,
+	} = useValidatorData();
 	const { setUserData, setAllNominations } = useOverviewData();
 	const { setTransactionHash } = useTransactionHash();
 	const { setNominatorsData, setNomLoading } = useNominatorsData();
@@ -191,13 +194,12 @@ const Header = ({ isBase }) => {
 						setIsBonded(isSome);
 					})
 					.catch((error) => {
-						console.error("Something went wrong,", error);
+						alert("Something went wrong, please reload!");
 					});
-				// TODO: handle era election station w.r.t the new changes
-				// networkInfo.network !== "westend" &&
-				// 	api.query.staking.eraElectionStatus().then((data) => {
-				// 		setIsInElection(data.isOpen);
-				// 	});
+				networkInfo.network !== "westend" &&
+					api.query.staking.eraElectionStatus().then((data) => {
+						setIsInElection(data.isOpen);
+					});
 			});
 		}
 	}, [stashAccount, networkInfo]);

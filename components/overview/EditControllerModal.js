@@ -36,7 +36,7 @@ const EditControllerModal = withSlideIn(({ styles, close, networkInfo }) => {
 				}
 			})
 			.catch((error) => {
-				console.error("Something went wrong", error);
+				alert("Something went wrong, please reload!");
 			})
 			.finally(() => {
 				setLoading(false);
